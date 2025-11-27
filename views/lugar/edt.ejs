@@ -1,0 +1,35 @@
+<%-include('../cabecalho.ejs')%>
+<h1>Editar Lugar</h1>
+<div>
+    <a href="/lugar/lst">Listar</a>
+</div>
+
+<div>
+    <form method="post">
+        <input type="hidden" name="id" value="<%= Lugar._id %>"><br>
+
+        <label>Nome:</label>
+        <input type="text" name="nome" value="<%= Lugar.nome %>" required><br>
+
+        <label>Descrição:</label>
+        <input type="text" name="descricao" value="<%= Lugar.descricao %>" required><br>
+
+        <label>Localização:</label>
+        <input type="text" name="localizacao" value="<%= Lugar.localizacao %>" required><br>
+
+        <label for="empresa">Empresa:</label>
+        <select name="empresa" id="empresa" required>
+            <option value="">Selecione uma empresa</option>
+            <% empresas.forEach(function(empresa) { %>
+                <option value="<%= empresa._id %>" 
+                    <%= Lugar.empresa && Lugar.empresa.toString() === empresa._id.toString() ? 'selected' : '' %>>
+                    <%= empresa.nome %>
+                </option>
+            <% }); %>
+        </select><br>
+
+        <button type="submit">Salvar Alterações</button>
+    </form>
+</div>
+
+<%-include('../rodape.ejs')%>

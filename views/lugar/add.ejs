@@ -1,0 +1,30 @@
+<%-include('../cabecalho.ejs')%>
+<h1>Adicionar Lugar</h1>
+<div>
+<a href="/lugar/lst">Listar</a>
+</div>
+<div>
+    <form  method="post">
+
+        <label>Nome:</label>
+        <input type="text" name="nome"><br>
+
+        <label>Descrição:</label>
+        <input type="text" name="descricao"><br>
+
+        <label>Localização:</label>
+        <input type="text" name="localizacao"><br>
+
+          <label for="empresa">Empresa:</label>
+        <select name="empresa" id="empresa" required>
+            <option value="">Selecione uma empresa</option>
+            <% empresas.forEach(function(empresa) { %>
+                <option value="<%= empresa._id %>"><%= empresa.nome %></option>
+            <% }); %>
+        </select><br>
+        <button type="submit">Cadastrar</button>
+        
+    </form>
+</div>
+
+<%-include('../rodape.ejs')%>

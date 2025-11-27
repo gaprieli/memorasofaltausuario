@@ -1,0 +1,37 @@
+<%- include('../cabecalho.ejs') %>
+<h1>Lembranças</h1>
+<a href="/lembranca/add">Adicionar Lembrança</a>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Usuário</th>
+      <th>Empresa</th>
+      <th>Data</th>
+      <th>Lugar</th>
+      <th>Relato</th>
+      <th>Estrelas</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for (const {id, titulo, usuario, empresa, data, relato, estrelas, lugar} of lembrancas) { %>
+      <tr>
+        <td><%= titulo || '' %></td>
+        <td><%= usuario ? usuario.nome : 'N/A' %></td>
+        <td><%= empresa ? empresa.nome : 'N/A' %></td>
+        <td><%= data ? new Date(data).toLocaleDateString() : '' %></td>
+        <td><%= lugar ? lugar.nome : 'N/A' %></td>
+        <td><%= relato %></td>
+        <td><%= estrelas %></td>
+        <td>
+          <a href="/lembranca/edt/<%= id %>">Editar</a>
+          <a href="/lembranca/del/<%= id %>">Excluir</a>
+        </td>
+      </tr>
+    <% } %>
+  </tbody>
+</table>
+
+<%- include('../rodape.ejs') %>

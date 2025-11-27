@@ -1,0 +1,34 @@
+<%-include('../cabecalho.ejs')%>
+<h1>Empresas</h1>
+
+<a href="/empresa/add">Adicionar Empresa</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>CNPJ</th>
+            <th>Email</th>
+            <th>Telefone</th>
+            <th>Endereço</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for (const empresa of Empresas) { %>
+        <tr>
+            <td><%= empresa.nome %></td>
+            <td><%= empresa.cnpj %></td>
+            <td><%= empresa.email %></td>
+            <td><%= empresa.telefone %></td>
+            <td><%= empresa.endereco %></td>
+            <td>
+                <a href="/empresa/edt/<%= empresa._id %>">Editar</a> | 
+                <a href="/empresa/del/<%= empresa._id %>">Excluir</a>
+            </td>
+        </tr>
+        <% } %>
+    </tbody>
+</table>
+
+<%-include('../rodape.ejs')%>

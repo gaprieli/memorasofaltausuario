@@ -1,0 +1,22 @@
+<%-include('../cabecalho.ejs')%>
+<h1>Adicionar empresa</h1>
+<div>
+<a href="/empresa/lst">Listar</a>
+</div>
+<div>
+    <form  method="post">
+        <label>Nome:</label>
+        <input type="text" name="nome"><br>
+         <label>CNPJ:</label>
+        <input type="text" name="cnpj"><br>
+        <label>Email:</label>  
+        <input type="email" name="email"><br>
+        <label>Telefone:</label>
+        <input type="text" name="telefone"><br>
+        <label>Endereço:</label>    
+        <input type="text" name="endereco"><br> 
+        <button type="submit">Cadastrar</button>
+    </form>
+</div>
+
+<%-include('../rodape.ejs')%>

@@ -1,0 +1,26 @@
+<%-include('../cabecalho.ejs')%>
+<h1>Editar Empresa</h1>
+<div>
+    <a href="/empresa/lst">Listar</a>
+</div>
+<div>
+    <form action="/empresa/edt/<%= Empresa._id %>" method="post">
+        <label>Nome:</label>
+        <input type="text" name="nome" value="<%= Empresa.nome %>" required><br>
+
+        <label>CNPJ:</label>
+        <input type="text" name="cnpj" value="<%= Empresa.cnpj %>" required><br>
+
+        <label>Email:</label>
+        <input type="email" name="email" value="<%= Empresa.email %>" required><br>
+
+        <label>Telefone:</label>
+        <input type="text" name="telefone" value="<%= Empresa.telefone %>" required><br>
+
+        <label>Endereço:</label>
+        <input type="text" name="endereco" value="<%= Empresa.endereco %>" required><br>
+
+        <button type="submit">Salvar</button>
+    </form>
+</div>
+<%-include('../rodape.ejs')%>
