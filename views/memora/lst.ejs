@@ -1,0 +1,33 @@
+<%- include('../cabecalho2.ejs') %>
+<h1>Memórias!</h1>
+<h2>Seja bem vindo ao site Memora</h2>
+<h2>Mande suas memoras para o email memorarelatos@memora.com que sua memora será adicionada ao site!</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Usuário</th>
+      <th>Empresa</th>
+      <th>Data</th>
+      <th>Lugar</th>
+      <th>Relato</th>
+      <th>Estrelas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for (const {id, titulo, usuario, empresa, data, relato, estrelas, lugar} of memoras) { %>
+      <tr>
+        <td><%= titulo || '' %></td>
+        <td><%= usuario ? usuario.nome : 'N/A' %></td>
+        <td><%= empresa ? empresa.nome : 'N/A' %></td>
+        <td><%= data ? new Date(data).toLocaleDateString() : '' %></td>
+        <td><%= lugar ? lugar.nome : 'N/A' %></td>
+        <td><%= relato ? lembranca.relato : 'N/A'%></td>
+        <td><%= estrelas ? lembranca.estrelas : 'N/A' %></td>
+      </tr>
+    <% } %>
+  </tbody>
+</table>
+
+<%- include('../rodape.ejs') %>

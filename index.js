@@ -6,6 +6,7 @@ import usuarioRoutes from './routes/UsuarioRoutes.js'; // rotas externas
 import empresaRoutes from './routes/EmpresaRoutes.js'; // rotas externas
 import lugarRoutes from './routes/LugarRoutes.js'; // rotas externas
 import lembrancaRoutes from './routes/LembrancaRoutes.js'; // rotas externas
+import memoraRoutes from './routes/MemoraRoutes.js'; // rotas externas
 
 
 
@@ -25,10 +26,11 @@ app.use(express.static(join(__dirname, '/public')));
 app.set('views', join(__dirname, '/views'));
 
 // Rotas
-app.use(usuarioRoutes)
-app.use(lugarRoutes)
-app.use(lembrancaRoutes)
-app.use(empresaRoutes)
+app.use('/usuario', usuarioRoutes)
+app.use('/lugar', lugarRoutes)
+app.use('/lembranca', lembrancaRoutes)
+app.use('/memora', memoraRoutes)
+app.use('/empresa', empresaRoutes)
 app.use(routes)
 app.listen(3001)
 // Exporta o handler compatível com Vercel
